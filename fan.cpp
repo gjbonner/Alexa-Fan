@@ -1,40 +1,45 @@
 int fan(String command);
+
+const fan = 'D6';
+const lights = 'D3';
+const fan_high = 'D4';
+const fan_off = 'D5';
 void setup() {
    Particle.function("fan", fan);
-   pinMode(D6, OUTPUT);
-   pinMode(D5, OUTPUT);
-   pinMode(D4, OUTPUT);
    pinMode(D3, OUTPUT);
+   pinMode(D4, OUTPUT);
+   pinMode(D5, OUTPUT);
+   pinMode(D6, OUTPUT);
    
-   digitalWrite(D6, HIGH);
-   digitalWrite(D5, HIGH);
-   digitalWrite(D4, HIGH);
    digitalWrite(D3, HIGH);
+   digitalWrite(D4, HIGH);
+   digitalWrite(D5, HIGH);
+   digitalWrite(D6, HIGH);
 }
 void loop() 
 {
 }
    int fan(String command) {
    if (command == "medium") {
-       digitalWrite(D6, LOW);
+       digitalWrite(fan, LOW);
        delay(450);
-       digitalWrite(D6, HIGH);
+       digitalWrite(fan, HIGH);
    
    }
    else if (command == "lights") {
-       digitalWrite(D3, LOW);
+       digitalWrite(lights, LOW);
        delay(450);
-       digitalWrite(D3, HIGH);
+       digitalWrite(lights, HIGH);
    }
       else if (command == "high"){
-        digitalWrite(D4, LOW);
+        digitalWrite(fan_high, LOW);
         delay(450);
-        digitalWrite(D4, HIGH);
+        digitalWrite(fan_high, HIGH);
    }
    else if (command == "off") {
-       digitalWrite(D5, LOW);
+       digitalWrite(fan_off, LOW);
        delay(450);
-       digitalWrite(D5, HIGH);
+       digitalWrite(fan_off, HIGH);
    }
 
 }

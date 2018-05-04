@@ -4,6 +4,9 @@ const fan = 'D6';
 const lights = 'D3';
 const fan_high = 'D4';
 const fan_off = 'D5';
+
+const delay_time = 450;
+
 void setup() {
    Particle.function("fan", fan);
    pinMode(D3, OUTPUT);
@@ -22,23 +25,23 @@ void loop()
    int fan(String command) {
    if (command == "medium") {
        digitalWrite(fan, LOW);
-       delay(450);
+       delay(delay_time);
        digitalWrite(fan, HIGH);
    
    }
    else if (command == "lights") {
        digitalWrite(lights, LOW);
-       delay(450);
+       delay(delay_time);
        digitalWrite(lights, HIGH);
    }
       else if (command == "high"){
         digitalWrite(fan_high, LOW);
-        delay(450);
+        delay(delay_time);
         digitalWrite(fan_high, HIGH);
    }
    else if (command == "off") {
        digitalWrite(fan_off, LOW);
-       delay(450);
+       delay(delay_time);
        digitalWrite(fan_off, HIGH);
    }
 
